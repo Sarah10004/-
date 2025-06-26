@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>초등 학습 사이트</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', 'Noto Sans KR', sans-serif; }
+    .neon {
+      text-shadow: 0 0 8px #7afcff, 0 0 16px #7afcff, 0 0 32px #7afcff;
+    }
+    .neon-pink {
+      text-shadow: 0 0 8px #ff7afc, 0 0 16px #ff7afc, 0 0 32px #ff7afc;
+    }
+    .glass {
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+    .neon-border {
+      box-shadow: 0 0 0 2px #7afcff, 0 0 8px #7afcff, 0 0 16px #7afcff;
+    }
+    .neon-border-pink {
+      box-shadow: 0 0 0 2px #ff7afc, 0 0 8px #ff7afc, 0 0 16px #ff7afc;
+    }
+    .neon-border-green {
+      box-shadow: 0 0 0 2px #7affc1, 0 0 8px #7affc1, 0 0 16px #7affc1;
+    }
+    .neon-btn {
+      transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 0 4px #7afcff, 0 0 16px #7afcff, 0 0 32px #7afcff;
+      background: #e0f7fa;
+      color: #0ea5e9;
+    }
+    .neon-btn-pink:hover {
+      box-shadow: 0 0 0 4px #ff7afc, 0 0 16px #ff7afc, 0 0 32px #ff7afc;
+      background: #fce4ec;
+      color: #d946ef;
+    }
+    .neon-btn-green:hover {
+      box-shadow: 0 0 0 4px #7affc1, 0 0 16px #7affc1, 0 0 32px #7affc1;
+      background: #e0ffe4;
+      color: #10b981;
+    }
+    .futuristic-card {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .futuristic-card:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 32px 0 #7afcff80, 0 0 16px #7afcff80;
+      border-color: #7afcff;
+      background: rgba(255,255,255,0.45);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-200 via-pink-100 to-cyan-200 min-h-screen flex flex-col items-center font-sans">
+  <!-- 네비게이션 바 -->
+  <nav class="w-full max-w-6xl mx-auto flex items-center justify-between py-2 px-8 glass mb-8 mt-8 border border-cyan-200">
+    <div class="flex gap-8 items-center">
+      <a href="#" class="text-cyan-500 font-semibold text-base hover:underline transition">Help Center</a>
+      <a href="#" class="text-gray-400 font-semibold text-base hover:text-cyan-500 transition">Community</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <!-- 아이스크림 SVG 로고 (네온 효과) -->
+      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
+        <ellipse cx="16" cy="13" rx="10" ry="9" fill="#7afcff"/>
+        <ellipse cx="16" cy="15" rx="8" ry="7" fill="#fff" fill-opacity="0.7"/>
+        <rect x="13" y="15" width="6" height="10" rx="2" fill="#fbbf24"/>
+        <ellipse cx="16" cy="13" rx="6" ry="5" fill="#ff7afc"/>
+        <ellipse cx="16" cy="11" rx="3" ry="2.5" fill="#fff" fill-opacity="0.7"/>
+      </svg>
+      <span class="text-2xl font-extrabold text-cyan-700 tracking-tight neon select-none" style="font-family:'Orbitron', 'Montserrat', 'Noto Sans KR', sans-serif;">I-scream Academy</span>
+    </div>
+    <div class="flex gap-8 items-center">
+      <a href="#" class="text-cyan-500 font-semibold text-base hover:underline transition">Report a Problem</a>
+      <a href="#" class="text-cyan-500 font-semibold text-base hover:underline transition">Sign in</a>
+    </div>
+  </nav>
+  <div class="w-full max-w-4xl glass shadow-2xl p-8 mb-12 border border-cyan-100">
+    <!-- 상단 탭 -->
+    <div class="flex justify-center gap-6 mb-10">
+      <button class="tab-btn text-lg font-bold px-7 py-2.5 rounded-full bg-cyan-100 text-cyan-700 shadow-md neon-btn neon-border focus:ring-4 focus:ring-cyan-300" onclick="showTab(0)">수학 문제 은행</button>
+      <button class="tab-btn text-lg font-bold px-7 py-2.5 rounded-full bg-green-100 text-green-700 shadow-md neon-btn-green neon-border-green focus:ring-4 focus:ring-green-200" onclick="showTab(1)">영어 단어장</button>
+      <button class="tab-btn text-lg font-bold px-7 py-2.5 rounded-full bg-pink-100 text-pink-700 shadow-md neon-btn-pink neon-border-pink focus:ring-4 focus:ring-pink-200" onclick="showTab(2)">과학 용어 사전</button>
+    </div>
+    <!-- 탭별 콘텐츠 -->
+    <div id="tab-contents">
+      <!-- 공통 콘텐츠 템플릿 -->
+      <template id="tab-template">
+        <div class="tab-content hidden">
+          <!-- 복습하기 영역 -->
+          <div class="mb-8">
+            <button class="subtab-btn bg-yellow-300 text-white px-5 py-2 rounded-xl font-semibold shadow hover:bg-yellow-400 mb-4 transition neon-btn" style="font-family:'Orbitron', 'Montserrat', 'Noto Sans KR', sans-serif;">복습하기</button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 1</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 2</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 3</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 4</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 5</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 6</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 7</div>
+              <div class="bg-white/60 glass border-2 border-cyan-100 rounded-2xl p-6 text-center font-semibold text-cyan-700 cursor-pointer futuristic-card neon" onclick="openContentBox(this)">복습 8</div>
+            </div>
+          </div>
+          <!-- 학습하기 영역 -->
+          <div>
+            <button class="subtab-btn bg-pink-400 text-white px-5 py-2 rounded-xl font-semibold shadow hover:bg-pink-500 mb-4 transition neon-btn-pink" style="font-family:'Orbitron', 'Montserrat', 'Noto Sans KR', sans-serif;">학습하기</button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 1</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 2</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 3</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 4</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 5</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 6</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 7</div>
+              <div class="bg-white/60 glass border-2 border-pink-100 rounded-2xl p-6 text-center font-semibold text-pink-700 cursor-pointer futuristic-card neon-pink" onclick="openContentBox(this)">학습 8</div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <!-- 탭별 콘텐츠 적용 -->
+      <div class="tab-content"></div>
+      <div class="tab-content hidden"></div>
+      <div class="tab-content hidden"></div>
+    </div>
+  </div>
+  <script>
+    let currentTab = 0;
+    // 탭 콘텐츠 템플릿 복사
+    const template = document.getElementById("tab-template").content;
+    const containers = document.querySelectorAll(".tab-content");
+    containers.forEach((container, index) => {
+      const clone = template.cloneNode(true);
+      container.replaceWith(clone);
+    });
+    function showTab(idx) {
+      document.querySelectorAll('.tab-content').forEach((el, i) => {
+        el.classList.toggle('hidden', i !== idx);
+      });
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('ring-4', i === idx);
+        btn.classList.toggle('neon-border', i === idx && idx === 0);
+        btn.classList.toggle('neon-border-green', i === idx && idx === 1);
+        btn.classList.toggle('neon-border-pink', i === idx && idx === 2);
+      });
+      currentTab = idx;
+    }
+    // 박스 클릭 시 함수 (나중에 콘텐츠 열기용, 지금은 alert만)
+    function openContentBox(el) {
+      alert('나중에 콘텐츠가 열릴 예정입니다!');
+    }
+    // 초기화
+    showTab(0);
+  </script>
+  <!-- 푸터 -->
+  <footer class="w-full max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 px-6 py-8 mt-auto border-t border-cyan-200 glass">
+    <div class="text-gray-500 text-base leading-relaxed">
+      <div class="mb-1">경기도 성남시 분당구 판교역로 225-20 아이스크림미디어</div>
+      <div class="mb-1">Tel : <span class="tracking-wide">(02)3440-2300</span> &nbsp; FAX : <span class="tracking-wide">(02)3440-2301</span></div>
+      <div class="text-sm mt-2">©i-Scream Media Corporation. All rights reserved.</div>
+    </div>
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
+      <div class="flex flex-col items-start md:items-center md:mr-8">
+        <span class="font-semibold text-gray-800 text-base flex items-center gap-1 select-none">Family sites <svg class="inline ml-1 w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></span>
+        <div class="w-full h-px bg-cyan-100 mt-2 md:hidden"></div>
+      </div>
+      <div class="flex gap-3 items-center">
+        <!-- 유튜브 -->
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-100 hover:bg-cyan-50 transition"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="#06b6d4" d="M21.8 7.2a2.8 2.8 0 0 0-2-2C18 5 12 5 12 5s-6 0-7.8.2a2.8 2.8 0 0 0-2 2A29.7 29.7 0 0 0 2 12a29.7 29.7 0 0 0 .2 4.8 2.8 2.8 0 0 0 2 2C6 19 12 19 12 19s6 0 7.8-.2a2.8 2.8 0 0 0 2-2A29.7 29.7 0 0 0 22 12a29.7 29.7 0 0 0-.2-4.8ZM10 15.5V8.5l6 3.5-6 3.5Z"/></svg></a>
+        <!-- 블로그 -->
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-100 hover:bg-cyan-50 transition"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><g><rect x="4" y="4" width="16" height="16" rx="4" fill="#fff" stroke="#06b6d4" stroke-width="2"/><text x="12" y="16" text-anchor="middle" font-size="8" fill="#06b6d4" font-family="Arial, sans-serif">blog</text></g></svg></a>
+        <!-- 페이스북 -->
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-100 hover:bg-cyan-50 transition"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="#06b6d4" d="M15.117 8.667h-1.05c-.183 0-.4.24-.4.533v1.067h1.45l-.2 1.6h-1.25V18h-2.05v-6.133h-1.05v-1.6h1.05v-1.067C11.617 7.067 12.3 6 13.617 6h1.5v1.6Z"/></svg></a>
+        <!-- 카카오톡 -->
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-cyan-100 hover:bg-cyan-50 transition"><svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><ellipse cx="12" cy="12" rx="9" ry="8" fill="#fff" stroke="#06b6d4" stroke-width="2"/><text x="12" y="16" text-anchor="middle" font-size="8" fill="#06b6d4" font-family="Arial, sans-serif">TALK</text></svg></a>
+      </div>
+      <div class="ml-4 border-l border-cyan-100 pl-4 text-base text-cyan-700 font-semibold whitespace-nowrap">사이버 신문고</div>
+    </div>
+  </footer>
+</body>
+</html>
